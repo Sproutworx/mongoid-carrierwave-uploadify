@@ -1,24 +1,22 @@
-%h1 Story
+/%h1 Story
+/
+/= link_to 'Edit', :edit_story
+/\|
+/= link_to 'Back', :stories
+/|
+/= link_to 'Add photo', new_story_photo_path(@story)
+/
+/%p
+/  %b Title:
+/  = @story.title
+/%p
+/  %b Body:
+/  = @story.body
 
-= link_to 'Edit', :edit_story
-\|
-= link_to 'Back', :stories
-|
-= link_to 'Add photo', new_story_photo_path(@story)
-
-%p
-  %b Title:
-  = @story.title
-%p
-  %b Body:
-  = @story.body
-
-%p
-  %i Note: Photos are sortable. Just drag and drop into new position
-
-.container
+.uploadify-container
+  %p
+    %i Note: Photos are sortable. Just drag and drop into new position
   .photos#sortable
-    %h2 Photos
 
     - @story.photos.forward.each do |photo|
       = render photo
